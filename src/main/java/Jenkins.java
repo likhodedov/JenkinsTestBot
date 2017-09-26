@@ -18,7 +18,7 @@ public class Jenkins {
     public static void main(String args[]) throws IOException, URISyntaxException {
 
         JenkinsServer jenkins = new JenkinsServer(new URI("http://jenkins.movavi.srv/"), "testrail", "006436088f74df66c6dc51841dda999d");
-      //  Map<String, Job> jobs = jenkins.getJobs();
+//        Map<String, Job> jobs = jenkins.getJobs();
         Map<String, Job> jobs=jenkins.getJobs("Mobile");
 
         JobWithDetails job=jobs.get("Movavi_VideoEditor_Android").details();
@@ -28,8 +28,9 @@ public class Jenkins {
 
 
         buildWithDetails.getParameters();
-      //  Map<String,String> ss=buildWithDetails.getParameters();
-               // String brunch=ss.get("branch");
+        Map<String,String> ss=buildWithDetails.getParameters();
+        buildWithDetails.getResult();
+               String brunch=ss.get("branch");
 
         job.build();
 
